@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Juan Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .create-account {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .create-account a {
+      color: #2196F3;
+      text-decoration: none;
+    }
+
+    .create-account a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login ke Pertemuan 1</h2>
+    <form onsubmit="return login(event)">
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Masuk</button>
+    </form>
+    <div class="create-account">
+      Belum punya akun? <a href="register.html">Create Account</a>
+    </div>
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Contoh validasi sederhana
+      if (user === "admin" && pass === "1234") {
+        alert("Login berhasil!");
+        window.location.href = "home.html"; // Halaman utama setelah login
+      } else {
+        alert("Username atau password salah.");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daftar Akun - Juan Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .register-box h2 {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-box">
+    <h2>Buat Akun Baru</h2>
+    <form onsubmit="return register(event)">
+      <input type="text" id="newUsername" placeholder="Username Baru" required />
+      <input type="password" id="newPassword" placeholder="Password Baru" required />
+      <button type="submit">Daftar</button>
+    </form>
+  </div>
+
+  <script>
+    function register(event) {
+      event.preventDefault();
+
+      const username = document.getElementById("newUsername").value;
+      const password = document.getElementById("newPassword").value;
+
+      // Simpan ke localStorage
+      localStorage.setItem("juanstore_username", username);
+      localStorage.setItem("juanstore_password", password);
+
+      // Ganti dengan nomor WA admin kamu
+      const phoneNumber = "6281541103684";
+
+      const message = encodeURIComponent(
+        `Halo admin, saya sudah daftar akun di Juan Store.\nUsername: ${username}`
+      );
+
+      // Redirect ke WhatsApp
+      window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+    }
+  </script>
+
+</body>
+</html>
